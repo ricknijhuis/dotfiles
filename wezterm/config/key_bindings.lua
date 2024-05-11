@@ -25,7 +25,8 @@ local function move(key)
 		mods = "CTRL",
 		action = w.action_callback(function(win, pane)
 			if is_vim(pane) then
-				win.perform_action({
+				-- pass the keys through to vim/nvim
+				win:perform_action({
 					SendKey = { key = key, mods = "CTRL" },
 				}, pane)
 			else
@@ -45,7 +46,7 @@ local function resize(key)
 					SendKey = { key = key, mods = "META" },
 				}, pane)
 			else
-					win:perform_action({ AdjustPaneSize = { direction_keys[key], 3 } }, pane)
+				win:perform_action({ AdjustPaneSize = { direction_keys[key], 3 } }, pane)
 			end
 		end),
 	}
@@ -83,10 +84,10 @@ function M.apply(config)
 		move("l"),
 
 		-- resize panes
-		split_nav("resize", "h"),
-		split_nav("resize", "j"),
-		split_nav("resize", "k"),
-		split_nav("resize", "l"),
+		resize("h"),
+		resize("j"),
+		resize("k"),
+		resize("l"),
 		{
 			mods = "LEADER",
 			key = "-",
