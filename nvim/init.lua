@@ -6,6 +6,7 @@ local api = vim.api
 
 g.mapleader = " "
 g.maplocalleader = " "
+--g.winaltkeys = "no"
 
 vim.scriptencoding = "utf-8"
 vim.g.have_nerd_font = true
@@ -15,14 +16,14 @@ opt.number = true
 opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-opt.mouse = 'a'
+opt.mouse = "a"
 -- Don't show the mode, since it's already in the status line
 opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-opt.clipboard = 'unnamedplus'
+opt.clipboard = "unnamedplus"
 
 -- Enable break indent
 opt.breakindent = true
@@ -35,7 +36,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- Keep signcolumn on by default
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 
 -- Decrease update time
 opt.updatetime = 250
@@ -52,10 +53,10 @@ opt.splitbelow = true
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 opt.list = true
-opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
-opt.inccommand = 'split'
+opt.inccommand = "split"
 
 -- Show which line your cursor is on
 opt.cursorline = true
@@ -81,45 +82,45 @@ opt.softtabstop = 4
 
 opt.termguicolors = true
 
-api.nvim_create_autocmd('TextYankPost', {
-	desc = 'Highlight when yanking (copying) text',
-	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
 	end,
 })
 
-local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-	vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 end ---@diagnostic disable-next-line: undefined-field
 opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	'tpope/vim-sleuth',
+	"tpope/vim-sleuth",
 	"tpope/vim-fugitive",
 	"tpope/vim-surround",
-	{ 'numToStr/Comment.nvim', opts = {} },
+	{ "numToStr/Comment.nvim", opts = {} },
 	{ import = "plugins" },
 }, {
 	ui = {
-	  -- If you are using a Nerd Font: set icons to an empty table which will use the
-	  -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-	  icons = vim.g.have_nerd_font and {} or {
-		cmd = '⌘',
-		config = '🛠',
-		event = '📅',
-		ft = '📂',
-		init = '⚙',
-		keys = '🗝',
-		plugin = '🔌',
-		runtime = '💻',
-		require = '🌙',
-		source = '📄',
-		start = '🚀',
-		task = '📌',
-		lazy = '💤 ',
-	  },
+		-- If you are using a Nerd Font: set icons to an empty table which will use the
+		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+		icons = vim.g.have_nerd_font and {} or {
+			cmd = "⌘",
+			config = "🛠",
+			event = "📅",
+			ft = "📂",
+			init = "⚙",
+			keys = "🗝",
+			plugin = "🔌",
+			runtime = "💻",
+			require = "🌙",
+			source = "📄",
+			start = "🚀",
+			task = "📌",
+			lazy = "💤 ",
+		},
 	},
-  })
+})

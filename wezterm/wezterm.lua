@@ -7,6 +7,6 @@ local config = wezterm.config_builder()
 launch.apply(config)
 key_bindings.apply(config)
 
-config.color_scheme = "rose-pine"
+config.color_scheme = "Tokyo Night"
 
 return config

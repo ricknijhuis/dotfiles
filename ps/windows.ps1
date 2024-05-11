@@ -463,3 +463,17 @@ Set-ItemProperty $(Join-Path $diskCleanupRegPath "Windows ESD installation files
 Set-ItemProperty $(Join-Path $diskCleanupRegPath "Windows Upgrade Log Files"                    ) "StateFlags6174" 0   -ErrorAction SilentlyContinue
 
 Remove-Variable diskCleanupRegPath
+
+
+###############################################################################
+### Appearance                                                                #
+###############################################################################
+
+Write-Host "Updating appearance to use dark mode..."
+$darkThemePath = "C:\Windows\Resources\Themes\themeA.theme"
+if (Test-Path $darkThemePath){
+    $darkThemePath
+}
+
+Set-ItemProperty -Path $k -Name "SystemUsesLightTheme" -Value 0
+Set-ItemProperty -Path $k -Name "AppsUseLightTheme" -Value 0

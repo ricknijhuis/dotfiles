@@ -47,3 +47,44 @@ pretty minimal config so you might want to adjust to any personal needs.
 - vim-sleuth (indenting)
 - vim-surround (auto pairs)
 - which-key (suggestions)
+
+# Keybindings
+
+| Mode | Key | Action  |
+|--|--|--|
+| Normal | " " | Leader |
+| Normal | Leader | Shows possible keys |
+| Normal | Leader ca | LSP Code Action |
+| Normal | Leader rn | LSP Rename |
+| Normal | Leader ds | LSP Document Symbols |
+| Normal | Leader D | LSP Definition |
+| Normal | K | LSP Hover Documentation |
+| Normal | gD | LSP Goto Declaration |
+| Normal | gI | LSP Goto Implementation |
+| Normal | gr | LSP Goto Reference |
+| Normal | gd | LSP Goto definition |
+| Normal | Leader - | Open parent dir |
+| Normal | Leader / | Fuzzy find current buffer |
+| Normal | Leader s/ | Grep in open files |
+| Normal | Leader s. | Search recent files |
+| Normal | Leader sn | Search neovim config files |
+| Normal | Leader sr | Search resume |
+| Normal | Leader sh | Search help |
+| Normal | Leader sk | Search keymaps |
+| Normal | Leader sf | Search files |
+| Normal | Leader ss | Search select |
+| Normal | Leader sw | Search current word |
+| Normal | Leader sg | Search by grep |
+| Normal | Leader sp | Search git repo(project) |
+| Normal | Leader sd | Search diagnostics |
+| Normal | Leader Leader | Search existing buffers |
+| Normal | Leader u | Undo history |
+| Normal | Leader a | Tag file |
+| Normal | Leader k | Goto prev tagged file |
+| Normal | Leader j | Goto next tagged file |
+| Normal | Leader 1 | Goto tagged file 1 | 
+| Normal | Leader 2 | Goto tagged file 2 |
+| Normal | Leader 3 | Goto tagged file 3 | 
+| Normal | Leader 4 | Goto tagged file 4 | 
+| Normal | Leader 5 | Goto tagged file 5 |
+| Normal | Leader t | Open tag menu |
