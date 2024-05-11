@@ -6,10 +6,10 @@ Assert-RunAsAdministrator
 # Enable Developer Mode: Enable: 1, Disable: 0
 # Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
 # Bash on Windows
-Write-Information "Enabling Windows Subsystem for Linux (WSL)..." 
+Write-Host "Enabling Windows Subsystem for Linux (WSL)..." 
 Enable-WindowsOptionalFeature -Online -All -FeatureName "Microsoft-Windows-Subsystem-Linux" -NoRestart -WarningAction SilentlyContinue | Out-Null
 
-Write-Information "Configuring Privacy..." 
+Write-Host "Configuring Privacy..." 
 # General: Don't let apps use advertising ID for experiences across apps: Allow: 1, Disallow: 0
 if (!(Test-Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo")) {New-Item -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" -Type Folder | Out-Null}
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\AdvertisingInfo" "Enabled" 0
@@ -161,7 +161,7 @@ Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataC
 ###############################################################################
 ### Devices, Power, and Startup                                               #
 ###############################################################################
-Write-Information "Configuring Devices, Power, and Startup..." 
+Write-Host "Configuring Devices, Power, and Startup..." 
 
 # Sound: Disable Startup Sound: Enable: 0, Disable: 1
 Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" "DisableStartupSound" 1
@@ -174,7 +174,7 @@ Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory 
 ###############################################################################
 ### Explorer, Taskbar, and System Tray                                        #
 ###############################################################################
-Write-Information "Configuring Explorer, Taskbar, and System Tray..." 
+Write-Host "Configuring Explorer, Taskbar, and System Tray..." 
 
 # Prerequisite: Ensure necessary registry paths
 if (!(Test-Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer")) {New-Item -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" -Type Folder | Out-Null}
@@ -211,7 +211,7 @@ Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explo
 ###############################################################################
 ### Default Windows Applications                                              #
 ###############################################################################
-Write-Information "Configuring Default Windows Applications..." 
+Write-Host "Configuring Default Windows Applications..." 
 
 # Uninstall 3D Builder
 Get-AppxPackage "Microsoft.3DBuilder" -AllUsers | Remove-AppxPackage -AllUsers
@@ -393,7 +393,7 @@ Disable-WindowsOptionalFeature -Online -FeatureName "WindowsMediaPlayer" -NoRest
 ###############################################################################
 ### Accessibility and Ease of Use                                             #
 ###############################################################################
-Write-Information "Configuring Accessibility..." 
+Write-Host "Configuring Accessibility..." 
 
 # Turn Off Windows Narrator Hotkey: Enable: 1, Disable: 0
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Narrator\NoRoam" "WinEnterLaunchEnabled" 0
@@ -402,7 +402,7 @@ Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Narrator\NoRoam" "WinEnterLaunchEnabl
 ###############################################################################
 ### Windows Update & Application Updates                                      #
 ###############################################################################
-Write-Information "Configuring Windows Update..." 
+Write-Host "Configuring Windows Update..." 
 
 # Disable automatic reboot after install: Enable: 1, Disable: 0
 Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings" "IsExpedited" 0
@@ -418,7 +418,7 @@ Remove-Variable MU
 ###############################################################################
 ### Windows Defender                                                          #
 ###############################################################################
-Write-Information "Configuring Windows Defender..." 
+Write-Host "Configuring Windows Defender..." 
 
 # Disable Cloud-Based Protection: Enabled Advanced: 2, Enabled Basic: 1, Disabled: 0
 Set-MpPreference -MAPSReporting 0
@@ -430,7 +430,7 @@ Set-MpPreference -SubmitSamplesConsent 2
 ###############################################################################
 ### Disk Cleanup (CleanMgr.exe)                                               #
 ###############################################################################
-Write-Information "Configuring Disk Cleanup..." 
+Write-Host "Configuring Disk Cleanup..." 
 
 $diskCleanupRegPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"
 
