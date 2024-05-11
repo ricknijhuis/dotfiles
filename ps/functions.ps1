@@ -4,7 +4,7 @@ function Assert-RunAsAdministrator() {
   
     #Check user is running the script is member of Administrator Group
     if ($CurrentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)) {
-        Write-Information "Script is running with Administrator privileges!" -ForegroundColor "Yellow"
+        Write-Information "Script is running with Administrator privileges!" 
     }
     else {
         #Create a new Elevated process to Start PowerShell
