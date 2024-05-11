@@ -1,6 +1,6 @@
 param($tempArtifactPath = "$PSScriptRoot\artifacts")
 
-Import-Module $PSScriptRoot\ps\functions.ps1
+Import-Module functions.ps1
 
 Assert-RunAsAdministrator
 

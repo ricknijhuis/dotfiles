@@ -1,4 +1,4 @@
-Import-Module $PSScriptRoot\ps\functions.ps1
+Import-Module functions.ps1
  
 #Check Script is running with Elevated Privileges
 Assert-RunAsAdministrator
