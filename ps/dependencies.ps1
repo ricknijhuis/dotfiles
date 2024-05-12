@@ -2,8 +2,6 @@ param($tempArtifactPath = "$PSScriptRoot\artifacts")
 
 Import-Module functions.ps1
 
-Assert-RunAsAdministrator
-
 Write-Host "Updating Help..." 
 Update-Help -Force
 

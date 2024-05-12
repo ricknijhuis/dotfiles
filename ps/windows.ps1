@@ -1,8 +1,3 @@
-Import-Module functions.ps1
- 
-#Check Script is running with Elevated Privileges
-Assert-RunAsAdministrator
-
 # Enable Developer Mode: Enable: 1, Disable: 0
 # Set-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\AppModelUnlock" "AllowDevelopmentWithoutDevLicense" 1
 # Bash on Windows
@@ -389,7 +384,7 @@ Get-AppXProvisionedPackage -Online | Where DisplayName -like "Microsoft.ZuneVide
 
 # Uninstall Windows Media Player
 Disable-WindowsOptionalFeature -Online -FeatureName "WindowsMediaPlayer" -NoRestart -WarningAction SilentlyContinue | Out-Null
-=
+
 ###############################################################################
 ### Accessibility and Ease of Use                                             #
 ###############################################################################
@@ -464,16 +459,14 @@ Set-ItemProperty $(Join-Path $diskCleanupRegPath "Windows Upgrade Log Files"    
 
 Remove-Variable diskCleanupRegPath
 
-
 ###############################################################################
 ### Appearance                                                                #
 ###############################################################################
 
 Write-Host "Updating appearance to use dark mode..."
-$darkThemePath = "C:\Windows\Resources\Themes\themeA.theme"
-if (Test-Path $darkThemePath){
-    $darkThemePath
+if (Test-Path "C:\Windows\Resources\Themes\dark.theme"){
+    C:\Windows\Resources\Themes\dark.theme
 }
 
-Set-ItemProperty -Path $darkThemePath -Name "SystemUsesLightTheme" -Value 0
-Set-ItemProperty -Path $darkThemePath -Name "AppsUseLightTheme" -Value 0
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "SystemUsesLightTheme" -Value 0
+Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Value 0
