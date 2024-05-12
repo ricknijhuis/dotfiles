@@ -475,5 +475,5 @@ if (Test-Path $darkThemePath){
     $darkThemePath
 }
 
-Set-ItemProperty -Path $k -Name "SystemUsesLightTheme" -Value 0
-Set-ItemProperty -Path $k -Name "AppsUseLightTheme" -Value 0
+Set-ItemProperty -Path $darkThemePath -Name "SystemUsesLightTheme" -Value 0
+Set-ItemProperty -Path $darkThemePath -Name "AppsUseLightTheme" -Value 0
