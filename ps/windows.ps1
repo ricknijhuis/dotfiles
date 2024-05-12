@@ -467,6 +467,3 @@ Write-Host "Updating appearance to use dark mode..."
 if (Test-Path "C:\Windows\Resources\Themes\dark.theme"){
     C:\Windows\Resources\Themes\dark.theme
 }
-
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "SystemUsesLightTheme" -Value 0
-Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name "AppsUseLightTheme" -Value 0
