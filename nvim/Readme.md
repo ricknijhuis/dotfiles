@@ -24,7 +24,6 @@ Welcome to my personal NVIM setup.
 This configuration contains some packages to improve my workflow, it might not work for you, as far as I know this is a 
 pretty minimal config so you might want to adjust to any personal needs.
 - cmp-nvim-lsp
-- Comment
 - conform (linting)
 - fidget
 - gitsigns
@@ -45,10 +44,13 @@ pretty minimal config so you might want to adjust to any personal needs.
 - tokyo-night (theme)
 - vim-fugitive (git)
 - vim-sleuth (indenting)
-- vim-surround (auto pairs)
+- mini-surround
+- mini-pairs
+- mini-comment
 - which-key (suggestions)
 
 # Keybindings
+Here a list of keybindings for this setup
 
 | Mode | Key | Action  |
 |--|--|--|
@@ -88,3 +90,22 @@ pretty minimal config so you might want to adjust to any personal needs.
 | Normal | Leader 4 | Goto tagged file 4 | 
 | Normal | Leader 5 | Goto tagged file 5 |
 | Normal | Leader t | Open tag menu |
+| Normal | gcc | Toggle comment line |
+| Visual | gc | Toggle comment selection |
+| Normal | sa | Add surrounding |
+| Visual | sa | Add surrounding to selection |
+| Normal | sd | Delete surrounding |
+| Normal | sr | Replace surrounding |
+| Normal | sf | Find right surrounding |
+| Normal | sF | Find left surrounding |
+| Normal | sh | Highlight surrounding |
+| Normal | sdl | Delete previous surrounding |
+| Normal | srl | Replace previoud surrounding |
+| Normal | sfl | Find previous right surrounding |
+| Normal | sFl | Find previous left surrounding |
+| Normal | shl | Highlight previous surrounding |
+| Normal | sdn | Delete next surrounding |
+| Normal | srn | Replace next surrounding |
+| Normal | sfn | Find next right surrounding |
+| Normal | sFn | Find next left surrounding |
+| Normal | shn | Highlight next surrounding |

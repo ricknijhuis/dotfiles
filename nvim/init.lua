@@ -100,8 +100,9 @@ opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	"tpope/vim-sleuth",
 	"tpope/vim-fugitive",
-	"tpope/vim-surround",
-	{ "numToStr/Comment.nvim", opts = {} },
+	{ "echasnovski/mini.pairs", version = false, opts = {} },
+	{ "echasnovski/mini.surround", version = false, opts = {} },
+	{ "echasnovski/mini.comment", version = false, opts = {} },
 	{ import = "plugins" },
 }, {
 	ui = {
