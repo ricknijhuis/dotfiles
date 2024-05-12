@@ -4,6 +4,23 @@ local mux = wezterm.mux
 local module = {}
 
 function module.apply(config)
+	wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+		local active_pane = tab.active_pane
+
+		-- cwd is a URL object with file:// as beginning.
+		local cwd = active_pane.current_working_dir
+		if cwd == nil then
+			return
+		end
+
+		-- get cwd in string format, https://wezfurlong.org/wezterm/config/lua/wezterm.url/Url.html
+		local cwd_str = cwd.file_path
+
+		-- shorten the path by using ~ as $HOME.
+		local home_dir = os.getenv("HOME")
+		return string.gsub(cwd_str, home_dir, "~")
+	end)
+
 	wezterm.on("gui-startup", function(cmd)
 		-- allow `wezterm start -- something` to affect what we spawn
 		-- in our initial window
