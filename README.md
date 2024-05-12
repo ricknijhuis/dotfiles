@@ -164,5 +164,5 @@ Run the bootstrap.ps1 powershell script. it will setup everything for use
 - [Wezterm configuration](wezterm/README.md) for use with NeoVim
     - files will be symlinked so changes can be made in this repo and will automatically be applied
 
-- [NeoVim configuration](nvim/README.md) for use with wezterm
+- [NeoVim configuration](nvim/Readme.md) for use with wezterm
     - files will be symlinked so changes can be made in this repo and will automatically be applied

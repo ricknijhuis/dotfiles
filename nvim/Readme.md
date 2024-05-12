@@ -109,3 +109,11 @@ Here a list of keybindings for this setup
 | Normal | sfn | Find next right surrounding |
 | Normal | sFn | Find next left surrounding |
 | Normal | shn | Highlight next surrounding |
+| All | Ctrl-h | Move to pane left |
+| All | Ctrl-j | Move to pane down |
+| All | Ctrl-k | Move to pane up |
+| All | Ctrl-l | Move to pane right |
+| All | Alt-h | Resize to pane left |
+| All | Alt-j | Resize to pane down |
+| All | Alt-k | Resize to pane up |
+| All | Alt-l | Resize to pane right |
