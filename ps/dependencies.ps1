@@ -22,8 +22,7 @@ Add-AppxPackage Microsoft.VCLibs.x64.14.00.Desktop.appx
 Add-AppxPackage $latestWingetMsixBundle
 
 Write-Host "Installing git..." 
-winget install Git.Git --silent --accept-package-agreements --override "/VerySilent /NoRestart /o:PathOption=CmdTools /Components=""icons,assoc,assoc_sh,gitlfs"""
-winget install Git.Git --silent --accept-package-agreements --override "/VerySilent /NoRestart /o:PathOption=CmdTools /Components=""icons,assoc,assoc_sh,gitlfs"""
+winget install Git.Git --scope user --silent --accept-package-agreements --override "/VerySilent /NoRestart /o:PathOption=CmdTools /Components=""icons,assoc,assoc_sh,gitlfs"""
 
 Write-Host "Installing zig compiler(functions as our cross platform c compiler)..." 
 winget install --id=zig.zig  -e
